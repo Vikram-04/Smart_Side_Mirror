@@ -11,7 +11,13 @@ marker = aruco.generateImageMarker(
     0,
     600
 )
-
+# Add white padding
+marker = cv2.copyMakeBorder(
+    marker,
+    100, 100, 100, 100,
+    cv2.BORDER_CONSTANT,
+    value=255
+)
 cv2.imwrite("marker.png", marker)
 
 print("Marker generated successfully!")
