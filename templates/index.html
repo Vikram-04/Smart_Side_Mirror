@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SmartDrive Cockpit</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="cockpit">
+      <header class="topbar">
+        <div class="brand">
+          <span>◆</span> SMARTDRIVE
+          <small>DIGITAL COCKPIT</small>
+        </div>
+
+        <div class="top-info">
+          <span>DRIVE MODE</span>
+          <span class="online">● SYSTEM ONLINE</span>
+          <span id="clock">--:--:--</span>
+        </div>
+      </header>
+
+      <!-- MAIN INSTRUMENT CLUSTER -->
+
+      <main class="instrument-panel">
+        <!-- LEFT: RPM -->
+
+        <section class="gauge-section">
+          <div class="eyebrow">ENGINE SPEED</div>
+
+          <div class="dial rpm-dial">
+            <div class="dial-ring rpm-ring"></div>
+
+            <div class="dial-content">
+              <strong>2.4</strong>
+              <span>x1000 RPM</span>
+            </div>
+          </div>
+
+          <div class="gauge-scale">0 &nbsp; 2 &nbsp; 4 &nbsp; 6 &nbsp; 8</div>
+
+          <div class="minor-label">ENGINE RUNNING</div>
+        </section>
+
+        <!-- CENTRE: LANE CHANGE SAFETY -->
+
+        <section class="lane-section" id="laneAssist">
+          <div class="lane-heading">
+            <span>LANE CHANGE ASSIST</span>
+
+            <span class="live">● LIVE MONITORING</span>
+          </div>
+
+          <div class="status-display" id="statusDisplay">
+            <div class="status-symbol" id="statusSymbol">✓</div>
+
+            <div class="status-copy">
+              <strong id="statusTitle"> INITIALIZING </strong>
+
+              <span id="statusDescription">
+                Waiting for vehicle detection
+              </span>
+            </div>
+          </div>
+
+          <div class="distance-display">
+            <span>REAR VEHICLE DISTANCE</span>
+
+            <strong id="distance">-- <small>cm</small></strong>
+          </div>
+
+          <div class="lane-metrics">
+            <div>
+              <span>CLOSING SPEED</span>
+              <strong id="closingSpeed">-- cm/s</strong>
+            </div>
+
+            <div>
+              <span>TIME TO COLLISION</span>
+              <strong id="ttc">--</strong>
+            </div>
+          </div>
+
+          <div class="safety-note" id="safetyNote">Awaiting sensor data</div>
+        </section>
+
+        <!-- RIGHT: SPEED -->
+
+        <section class="gauge-section">
+          <div class="eyebrow">VEHICLE SPEED</div>
+
+          <div class="dial speed-dial">
+            <div class="dial-ring speed-ring"></div>
+
+            <div class="dial-content">
+              <strong>084</strong>
+              <span>km/h</span>
+            </div>
+          </div>
+
+          <div class="minor-label">CURRENT SPEED</div>
+
+          <div class="gear-row">
+            <span>P</span>
+            <span>R</span>
+            <span>N</span>
+            <strong>D</strong>
+            <span>S</span>
+          </div>
+        </section>
+      </main>
+
+      <!-- BOTTOM VEHICLE INFORMATION -->
+
+      <section class="bottom-strip">
+        <div class="bottom-item">
+          <span>FUEL LEVEL</span>
+          <strong>78%</strong>
+
+          <div class="mini-track">
+            <div style="width: 78%"></div>
+          </div>
+        </div>
+
+        <div class="bottom-item">
+          <span>ENGINE TEMPERATURE</span>
+          <strong>90°C</strong>
+        </div>
+
+        <div class="bottom-item">
+          <span>BATTERY</span>
+          <strong>92%</strong>
+        </div>
+
+        <div class="bottom-item">
+          <span>ODOMETER</span>
+          <strong>12,450 km</strong>
+        </div>
+
+        <div class="bottom-item">
+          <span>CRUISE CONTROL</span>
+          <strong class="green">ACTIVE</strong>
+        </div>
+      </section>
+
+      <!-- SIDE MIRROR CAMERA -->
+
+      <section class="mirror-section">
+        <div class="mirror-heading">
+          <span>LEFT SIDE MIRROR</span>
+          <span class="live">● CAMERA LIVE</span>
+        </div>
+
+        <div class="mirror">
+          <img src="/video_feed" alt="Live side mirror camera feed" />
+        </div>
+      </section>
+
+      <footer>
+        SMARTDRIVE DIGITAL COCKPIT
+        <span>VISION-BASED LANE SAFETY SYSTEM v1.0</span>
+      </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
