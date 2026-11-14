@@ -1,0 +1,504 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #03070c;
+  color: #e9f2fa;
+  font-family: "Segoe UI", Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cockpit {
+  width: 96%;
+  max-width: 1500px;
+  background: radial-gradient(ellipse at center, #111d2a, #080e17 75%);
+  border: 1px solid #263749;
+  border-radius: 28px;
+  padding: 28px 38px;
+  box-shadow: 0 0 60px #000;
+}
+
+/* HEADER */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #293a4d;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.brand > span {
+  color: #27dcb4;
+}
+
+.brand small {
+  display: block;
+  color: #788da3;
+  font-size: 8px;
+  letter-spacing: 3px;
+  margin-top: 4px;
+}
+
+.top-info {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #8b9caf;
+}
+
+.online,
+.live,
+.green {
+  color: #27dcb4 !important;
+}
+
+/* MAIN LAYOUT */
+
+.instrument-panel {
+  display: grid;
+  grid-template-columns: 0.85fr 1.4fr 0.85fr;
+  align-items: center;
+  gap: 25px;
+  padding: 35px 0;
+  min-height: 370px;
+}
+
+.gauge-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.gauge-section:first-child {
+  border-right: 1px solid #263749;
+}
+
+.gauge-section:last-child {
+  border-left: 1px solid #263749;
+}
+
+.eyebrow {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #8498ae;
+  margin-bottom: 25px;
+}
+
+/* RADIAL GAUGES */
+
+.dial {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.rpm-dial {
+  width: 220px;
+  height: 220px;
+}
+
+.speed-dial {
+  width: 250px;
+  height: 250px;
+}
+
+.dial-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.rpm-ring {
+  background: conic-gradient(
+    from 220deg,
+    #27dcb4 0deg,
+    #27dcb4 205deg,
+    #263b4c 205deg,
+    #263b4c 280deg,
+    transparent 280deg
+  );
+
+  mask: radial-gradient(farthest-side, transparent 87%, black 89%);
+}
+
+.speed-ring {
+  background: conic-gradient(
+    from 220deg,
+    #27dcb4 0deg,
+    #27dcb4 225deg,
+    #263b4c 225deg,
+    #263b4c 280deg,
+    transparent 280deg
+  );
+
+  mask: radial-gradient(farthest-side, transparent 91%, black 93%);
+}
+
+.dial-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.dial-content strong {
+  font-size: 65px;
+  font-weight: 800;
+  letter-spacing: -3px;
+}
+
+.speed-dial .dial-content strong {
+  font-size: 75px;
+}
+
+.dial-content span {
+  color: #8ea1b5;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.gauge-scale {
+  margin-top: 15px;
+  font-size: 12px;
+  color: #8195aa;
+}
+
+.minor-label {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #647d91;
+  margin-top: 18px;
+}
+
+/* GEAR */
+
+.gear-row {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  margin-top: 18px;
+  color: #8295a8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.gear-row strong {
+  color: #07110e;
+  background: #27dcb4;
+  padding: 7px 12px;
+  border-radius: 4px;
+}
+
+/* CENTRAL LANE SAFETY FEATURE */
+
+.lane-section {
+  padding: 15px 25px;
+  min-width: 0;
+}
+
+.lane-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #a5b6c7;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+}
+
+/* STATUS */
+
+.status-display {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 18px;
+  background: linear-gradient(110deg, #163d32, #10251f);
+  border: 1px solid #287d66;
+  border-radius: 12px;
+  border-left: 5px solid #27dcb4;
+  transition: 0.2s;
+}
+
+.status-symbol {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #27dcb4;
+  color: #07130f;
+  font-size: 32px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.status-copy strong {
+  display: block;
+  font-size: clamp(14px, 1.5vw, 20px);
+  color: #27dcb4;
+  font-weight: 900;
+}
+
+.status-copy span {
+  display: block;
+  font-size: 10px;
+  color: #a3bdb3;
+  margin-top: 7px;
+}
+
+/* DISTANCE */
+
+.distance-display {
+  text-align: center;
+  padding: 24px 0 18px;
+}
+
+.distance-display > span {
+  display: block;
+  color: #8498ae;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+.distance-display strong {
+  display: block;
+  font-size: clamp(44px, 5vw, 65px);
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-top: 5px;
+}
+
+.distance-display small {
+  font-size: 19px;
+  color: #8fa4b8;
+  letter-spacing: 0;
+}
+
+/* METRICS */
+
+.lane-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding: 15px 0;
+  border-top: 1px solid #304154;
+  border-bottom: 1px solid #304154;
+}
+
+.lane-metrics div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lane-metrics span {
+  font-size: 9px;
+  color: #8295aa;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+.lane-metrics strong {
+  font-size: 17px;
+}
+
+.safety-note {
+  text-align: center;
+  color: #8295aa;
+  font-size: 10px;
+  padding-top: 12px;
+}
+
+/* UNSAFE */
+
+.lane-section.is-unsafe .status-display {
+  background: linear-gradient(110deg, #4b1b28, #28141d);
+  border-color: #ff596c;
+  border-left-color: #ff596c;
+}
+
+.lane-section.is-unsafe .status-symbol {
+  background: #ff596c;
+  color: white;
+}
+
+.lane-section.is-unsafe .status-copy strong {
+  color: #ff596c;
+}
+
+.lane-section.is-unsafe .distance-display strong {
+  color: #ff7180;
+}
+
+/* NO VEHICLE */
+
+.lane-section.is-empty .status-display {
+  background: linear-gradient(110deg, #27313d, #17212c);
+  border-color: #607184;
+  border-left-color: #8495a7;
+}
+
+.lane-section.is-empty .status-symbol {
+  background: #8495a7;
+}
+
+.lane-section.is-empty .status-copy strong {
+  color: #c1ced9;
+}
+
+/* BOTTOM INSTRUMENT STRIP */
+
+.bottom-strip {
+  border-top: 1px solid #2d4053;
+  border-bottom: 1px solid #2d4053;
+  padding: 19px 10px;
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.bottom-item {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 100px;
+}
+
+.bottom-item span {
+  color: #8195aa;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.bottom-item strong {
+  font-size: 16px;
+}
+
+.mini-track {
+  background: #263b4c;
+  height: 3px;
+  width: 75px;
+}
+
+.mini-track div {
+  background: #27dcb4;
+  height: 100%;
+}
+
+/* MIRROR */
+
+.mirror-section {
+  margin-top: 20px;
+}
+
+.mirror-heading {
+  display: flex;
+  justify-content: space-between;
+  color: #8fa4b8;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.mirror {
+  width: 100%;
+  height: 150px;
+  background: #03080e;
+  border: 1px solid #354b5e;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.mirror img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* FOOTER */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  color: #647d91;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+  body {
+    align-items: flex-start;
+  }
+
+  .cockpit {
+    width: 98%;
+    margin: 10px;
+    padding: 20px;
+  }
+
+  .instrument-panel {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .gauge-section:first-child,
+  .gauge-section:last-child {
+    border: none;
+    border-bottom: 1px solid #263749;
+    padding-bottom: 25px;
+  }
+
+  .lane-section {
+    padding: 10px;
+  }
+
+  .bottom-strip {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 500px) {
+  .top-info {
+    gap: 8px;
+    font-size: 8px;
+  }
+
+  .lane-heading {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  footer {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
